@@ -28,7 +28,7 @@ angular.module('ui.bootstrap.papeditor').controller('PandaPolicyEditor', functio
     },
     {
       title: 'Description',
-      content: '<input type="textfield">This policy is to deny IM between groups</input>'
+      content: 'This policy is to deny IM between groups.'
     }
   ];
 

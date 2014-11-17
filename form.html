@@ -1,0 +1,51 @@
+<!DOCTYPE html>  
+<html ng-app>
+<head>
+<title>AngularJS is awesome</title>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.js"></script>
+<script src="model.js"></script>
+<script src="persist.js"></script>
+<script>//we will add this later</script>
+</head>
+<body>
+<div ng-controller="Profile">
+    <div ng-controller="Editor">
+        <h1 class="center" ng-click="editable = 'name'" ng-hide="editable == 'name'">{{person.name}}</h1>
+        <span ng-show="editable == 'name'">
+            <form class="form-inline">
+                <input type="text" size="30" name="name" ng:required ng-model="name">
+                <button class="btn btn-success"  ng-click="save(); editable = ''">Ok</button>
+                <button class="btn btn-warning" ng-click="editable = ''">Cancel</button>
+            </form>
+        </span>
+
+        <span ng-click="editable = 'role'" ng-hide="editable == 'role'">{{person.role}} @ </span><span ng-click="editable = 'company'" ng-hide="editable == 'company'">{{person.company}}</span>
+
+        <span ng-show="editable == 'role'">
+            <form class="form-inline">
+                <input type="text" size="30" name="role" ng:required ng-model="role" ng-show="editable == 'role'">
+                <button class="btn btn-success"  ng:click="save(); editable = ''">Ok</button>
+                <button class="btn btn-warning" ng:click="editable = ''">Cancel</button>
+            </form>
+        </span>
+
+        <span ng-show="editable == 'company'">
+            <form class="form-inline">
+                <input type="text" size="30" name="company" ng:required ng-model="company" ng-show="editable == 'company'">
+                <button class="btn btn-success"  ng:click="save(); editable = ''">Ok</button>
+                <button class="btn btn-warning" ng:click="editable = ''">Cancel</button>
+            </form>
+        </span>
+
+		<div ng-controller="Persistance">
+		<button class="btn btn-success"  ng:click="persist();">Save</button>
+		</div>
+    </div>
+</div>
+</body>
+<script>
+$scope.load();
+</script>
+
+
+</html>
